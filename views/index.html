@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/layui-src/src/css/layui.css">
+</head>
+
+<body>
+    <a class="layui-btn" href="/students">添加按钮</a>
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>爱好</th>
+                <th>编辑栏</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{each studens}}
+            <tr>
+                <td>{{$value.id}}</td>
+                <td>{{$value.name}}</td>
+
+                {{ if $value.gender == 0 }}
+                <td>女</td>
+                {{ else }}
+                <td>男</td>
+                {{/if}}
+
+                <td> {{ $value.age }} </td>
+
+                <td>{{$value.hobbies}}</td>
+                <td>    
+                <a class="layui-btn layui-btn-xs" href="students/idet?id={{$value.id}}">编辑</a>
+                <a class="layui-btn layui-btn-xs" href="/students/delete?id={{$value.id}}">删除</a>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+
+
+
+
+</body>
+
+</html>

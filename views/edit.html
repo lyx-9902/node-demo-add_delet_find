@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/node_modules/layui-src/src/css/layui.css">
+  <script src="/node_modules/layui-src/src/layui.js"></script>
+</head>
+<body>
+  <form class="layui-form" action="/students/idet" method="POST">
+    
+    <div class="layui-form-item layui-hide">
+        <label class="layui-form-label">这是id</label>
+        <div class="layui-input-block">
+          <input type="text" name="id" lay-verify="title" autocomplete="off" placeholder="" value="{{studens.id}}" class="layui-input">
+        </div>
+      </div>
+  
+
+    <div class="layui-form-item">
+      <label class="layui-form-label">姓名</label>
+      <div class="layui-input-block">
+        <input type="text" name="name" lay-verify="title" autocomplete="off" value="{{studens.name}}" class="layui-input">
+      </div>
+    </div>
+
+    <div class="layui-form-item">
+      <label class="layui-form-label">单选框</label>
+      <div class="layui-input-block">
+
+        {{ if studens.gender == 0 }}
+        <input type="radio" name="gender" value="0" title="女" checked>
+        <input type="radio" name="gender" value="1" title="男">
+        {{ else }}
+        <input type="radio" name="gender" value="0" title="女" >
+        <input type="radio" name="gender" value="1" title="男" checked>
+        {{/if}}
+
+      </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">年龄</label>
+        <div class="layui-input-block">
+          <input type="text" name="age" lay-verify="title" autocomplete="off" value="{{studens.age}}" class="layui-input">
+        </div>
+      </div>
+  
+      <div class="layui-form-item">
+        <label class="layui-form-label">爱好</label>
+        <div class="layui-input-block">
+          <input type="text" name="hobbies" lay-verify="title" autocomplete="off" value="{{studens.hobbies}}" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">修改信息</button>
+        </div>
+      </div>
+  </form>
+
+
+
+</body>
+<script>
+  layui.use('form', function () {
+    var form = layui.form;
+
+
+  });
+</script>
+
+</html>
